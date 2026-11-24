@@ -6,6 +6,7 @@ s.reboot {
   s.options.maxNodes = 1024 * 32;
   s.options.numOutputBusChannels = 2;
   s.options.numInputBusChannels = 2;
+  s.options.ugenPluginsPath = "SC_UGEN_PATHS".getenv.split($:);
   s.waitForBoot {
     ~dirt.free;
     ~dirt = SuperDirt(2, s);
