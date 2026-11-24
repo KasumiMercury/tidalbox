@@ -1,0 +1,34 @@
+setcps (128/60/4)
+
+d1 $ s "bd*4" # gain 1.1
+
+d2 $ stack [s "~ cp ~ cp" # room 0.2, s "[~ hh]*4" # gain 0.85, s "hh*16" # gain 0.6 # pan sine]
+
+d3 $ whenmod 8 4 (# lpf (slow 4 $ range 400 6000 saw)) $ struct "t*8" $ note "<a4'min7 f4'maj7 c5'maj g4'maj>"
+  # s "supersaw" # voice 0.3 # lpf 2400 # legato 1
+  # gain (fast 4 $ range 0.6 0.9 saw)
+  # room 0.4 # size 0.8
+
+d4 $ arp "<updown up>" $ note "<a4'min'8 f4'maj'8 c5'maj'8 g4'maj'8>"
+  # s "supersquare" # legato 0.4 # lpf 2500 # gain 0.75
+  # pan (slow 2 sine)
+  # delay 0.35 # delaytime (3/16) # lock 1 # delayfeedback 0.45
+
+d5 $ struct "[~ t]*4" $ note "<a2 f2 c3 g2>"
+  # s "supersaw" # voice 0.05 # lpf 500 # legato 0.8 # gain 0.9
+
+d6 $ note "<[e6 ~ c6 d6 e6 ~ a5 ~] [f6 ~ e6 c6 a5 ~ c6 ~] [g6 ~ e6 d6 c6 ~ e6 ~] [d6 ~ b5 ~ d6 e6 ~ ~]>"
+  # s "superpwm" # legato 0.9 # gain 0.8
+  # room 0.3 # size 0.7
+  # delay 0.25 # delaytime (3/8) # lock 1 # delayfeedback 0.3
+
+d7 $ slow 8 $ s "~ supernoise"
+  # note 0 # voice 1 # pitch1 0.03 # slide 40 # legato 1
+  # gain 0.9 # room 0.5 # size 0.9
+
+d8 $ slow 8 $ note "~ a4" # s "supersaw" # accelerate 1 # legato 1
+  # voice 0.5 # gain 0.6 # hpf 300 # room 0.5 # size 0.9
+
+d9 $ stack [s "<~ ~ ~ ~ 808sd*4 808sd*8 808sd*16 808sd:3*32>" # gain (slow 4 $ range 0.6 1 saw), s "<808cy ~ ~ ~ ~ ~ ~ ~>" # room 0.6 # size 0.9]
+
+hush
