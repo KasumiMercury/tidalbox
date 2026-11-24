@@ -1,0 +1,11 @@
+setcps (120/60/4)
+
+d1 $ sound "bd*4"
+
+d2 $ sound "~ sn ~ sn"
+
+d3 $ sound "hh*8" # gain 0.8
+
+d4 $ sound "~ arpy ~ arpy:3" # speed "1 1.5"
+
+hush
